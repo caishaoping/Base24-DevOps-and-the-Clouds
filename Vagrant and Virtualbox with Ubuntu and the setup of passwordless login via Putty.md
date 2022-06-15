@@ -26,7 +26,9 @@ Vagrant and Virtualbox with Ubuntu and the setup of passwordless login via Putty
   - $ touch Vagrantfile
 ## Install Ubuntu on VirtualBox via Vagrant command line tool
   - From Git Bash, run Vagrant to install Ubuntu
+  
     $ vagrant box add ubuntu/bionic64
+    
     ==> box: Loading metadata for box 'ubuntu/bionic64'
         box: URL: https://vagrantcloud.com/ubuntu/bionic64
     ==> box: Adding box 'ubuntu/bionic64' (v20220610.0.0) for provider: virtualbox
@@ -35,18 +37,25 @@ Vagrant and Virtualbox with Ubuntu and the setup of passwordless login via Putty
         box:
     ==> box: Successfully added box 'ubuntu/bionic64' (v20220610.0.0) for 'virtualbox'!
   - From Git Bash, run Vagrant to check listed Ubuntu
+  
     $ vagrant box list | grep bionic64
+    
     ubuntu/bionic64 (virtualbox, 20210319.0.0)
     **ubuntu/bionic64 (virtualbox, 20220610.0.0)**^1]: Newly installed ubuntu/bionic64
+
 ## Init newly installed Virtual Machine Ubuntu   
   - From Git Bash, run vagrant init command
+
     $ vagrant init ubuntu/bionic64
+    
     `Vagrantfile` already exists in this directory. Remove it before
      running `vagrant init`.
 
   - Try again, with --force option to override Vagrantfile
+
     caish@ThinkCentre MINGW64 ~/ubuntu-for-k8s-dev/shared
     $ vagrant init ubuntu/bionic64 --force
+    
     A `Vagrantfile` has been placed in this directory. You are now
     ready to `vagrant up` your first virtual environment! Please read
     the comments in the Vagrantfile as well as documentation on
