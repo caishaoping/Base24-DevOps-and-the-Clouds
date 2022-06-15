@@ -54,6 +54,7 @@ Vagrant and Virtualbox with Ubuntu and the setup of passwordless login via Putty
   - Try again, with --force option to override Vagrantfile
 
     caish@ThinkCentre MINGW64 ~/ubuntu-for-k8s-dev/shared
+    
     $ vagrant init ubuntu/bionic64 --force
     
     A `Vagrantfile` has been placed in this directory. You are now
