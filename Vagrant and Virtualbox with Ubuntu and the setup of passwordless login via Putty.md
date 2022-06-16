@@ -73,7 +73,7 @@ Vagrant and Virtualbox with Ubuntu and the setup of passwordless login via Putty
   - From Git Bash, run vagrant up command, 
     $ **vagrant up**
     
-    Bringing machine 'default' up with 'virtualbox' provider...
+    Bringing machine 'default' up with 'virtualbox' provider...  
     ==> default: Importing base box 'ubuntu/bionic64'...
     ==> default: Matching MAC address for NAT networking...
     ==> default: Checking if box 'ubuntu/bionic64' version '20220610.0.0' is up to date...
@@ -115,15 +115,14 @@ Vagrant and Virtualbox with Ubuntu and the setup of passwordless login via Putty
   - Resize the virtual machine's memmory, it should be no more than 1/2 of Windows host's total memory
   - Sample actual setup lines should be similar to following:
 
-    $ **grep -v '^ *#' Vagrantfile**
-    
-    Vagrant.configure("2") do |config|
-      config.vm.box = "ubuntu/bionic64"
-      config.vm.network "private_network", ip: "192.168.5.30"
-      config.vm.provider "virtualbox" do |vb|
-        vb.memory = "8192"
-      end
-    end
+    $ **grep -v '^ *#' Vagrantfile**  
+    Vagrant.configure("2") do |config|  
+      config.vm.box = "ubuntu/bionic64"  
+      config.vm.network "private_network", ip: "192.168.5.30"  
+      config.vm.provider "virtualbox" do |vb|  
+        vb.memory = "8192"  
+      end  
+    end  
     
  ## Apply updated configuration with vagrant provision command
  
