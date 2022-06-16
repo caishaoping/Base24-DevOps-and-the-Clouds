@@ -151,7 +151,9 @@ Vagrant and Virtualbox with Ubuntu and the setup of passwordless login via Putty
     0 updates can be applied immediately.
     New release '20.04.4 LTS' available.
     Run 'do-release-upgrade' to upgrade to it.
-    
+  
+  ![ssh login](Vagrant.ssh.JPG)
+  
   ## Congratulations, now you have successfully used Vagrant to setup ubuntu virtual machine on Virtualbox
 
 
