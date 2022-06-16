@@ -31,16 +31,20 @@ Vagrant and Virtualbox with Ubuntu and the setup of passwordless login via Putty
     
     ==> box: Loading metadata for box 'ubuntu/bionic64'
         box: URL: https://vagrantcloud.com/ubuntu/bionic64
+        
     ==> box: Adding box 'ubuntu/bionic64' (v20220610.0.0) for provider: virtualbox
         box: Downloading: https://vagrantcloud.com/ubuntu/boxes/bionic64/versions/20220610.0.0/providers/virtualbox.box
+        
     Download redirected to host: cloud-images.ubuntu.com
         box:
     ==> box: Successfully added box 'ubuntu/bionic64' (v20220610.0.0) for 'virtualbox'!
+    
   - From Git Bash, run Vagrant to check listed Ubuntu
   
     $ **vagrant box list | grep bionic64**
     
     ubuntu/bionic64 (virtualbox, 20210319.0.0)
+    
     **ubuntu/bionic64 (virtualbox, 20220610.0.0)**^1]: Newly installed ubuntu/bionic64
 
 ## Initialize newly installed Virtual Machine Ubuntu   
@@ -112,6 +116,7 @@ Vagrant and Virtualbox with Ubuntu and the setup of passwordless login via Putty
   - Sample actual setup lines should be similar to following:
 
     $ **grep -v '^ *#' Vagrantfile**
+    
     Vagrant.configure("2") do |config|
       config.vm.box = "ubuntu/bionic64"
       config.vm.network "private_network", ip: "192.168.5.30"
@@ -124,10 +129,12 @@ Vagrant and Virtualbox with Ubuntu and the setup of passwordless login via Putty
  
     - Apply new updates
     
-  $ **vagrant provision**
-  caish@ThinkCentre MINGW64 ~/ubuntu-for-k8s-dev/shared
-    
-    - when running provision command, the virtual maching should be already started up, otherwise you will get following message:
+      $ vagrant provision
+
+      caish@ThinkCentre MINGW64 ~/ubuntu-for-k8s-dev/shared
+      
+      - when running provision command, the virtual maching should be already started up, otherwise you will get following message:
+      
       ==> default: VM is not currently running. Please, first bring it up with `vagrant up` then run this command.
 
 ## Login to confirm the virtual machine is accessable 
