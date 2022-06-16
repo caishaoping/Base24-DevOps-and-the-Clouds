@@ -115,7 +115,7 @@ Vagrant and Virtualbox with Ubuntu and the setup of passwordless login via Putty
   - Resize the virtual machine's memmory, it should be no more than 1/2 of Windows host's total memory
   - Sample actual setup lines should be similar to following:
 
-    $ **grep -v '^ *#' Vagrantfile**  
+    $ grep -v '^ *#' Vagrantfile  
     Vagrant.configure("2") do |config|  
       config.vm.box = "ubuntu/bionic64"  
       config.vm.network "private_network", ip: "192.168.5.30"  
@@ -141,7 +141,7 @@ Vagrant and Virtualbox with Ubuntu and the setup of passwordless login via Putty
   $ **vagrant ssh**  
     ![ssh login](Vagrant.ssh.JPG)
   
-  ## Congratulations, now you have successfully used Vagrant to setup ubuntu virtual machine on Virtualbox
+## Congratulations, now you have successfully used Vagrant to setup ubuntu virtual machine on Virtualbox
 
 
 
