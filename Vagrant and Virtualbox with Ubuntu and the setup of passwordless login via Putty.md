@@ -21,7 +21,7 @@ Vagrant and Virtualbox with Ubuntu and the setup of passwordless login via Putty
 
   - start git bash and go to your home directory ($ is git bash command prompt)
   - $ **cd ~**
-  - $ **mkdir ./ubuntu-for-k8s-dev && cd ./ubuntu-for-k8s-dev && mkdir shared && cd ./shared && pwd**
+  - $ **mkdir ./ubuntu-for-k8s-dev && cd ./ubuntu-for-k8s-dev && mkdir shared && cd ./shared && pwd**  
     /c/Users/caish/ubuntu-for-k8s-dev/shared
   - $ **touch Vagrantfile**
 ## Install Ubuntu on VirtualBox via Vagrant command line tool
@@ -32,12 +32,12 @@ Vagrant and Virtualbox with Ubuntu and the setup of passwordless login via Putty
     ==> box: Loading metadata for box 'ubuntu/bionic64'
         box: URL: https://vagrantcloud.com/ubuntu/bionic64
         
-    ==> box: Adding box 'ubuntu/bionic64' (v20220610.0.0) for provider: virtualbox
+    ==> box: Adding box 'ubuntu/bionic64' (v20220610.0.0) for provider: virtualbox  
         box: Downloading: https://vagrantcloud.com/ubuntu/boxes/bionic64/versions/20220610.0.0/providers/virtualbox.box
         
     Download redirected to host: cloud-images.ubuntu.com
-        box:
-    ==> box: Successfully added box 'ubuntu/bionic64' (v20220610.0.0) for 'virtualbox'!
+        box:  
+    ==> box: Successfully added box 'ubuntu/bionic64' (v20220610.0.0) for 'virtualbox'!  
     
   - From Git Bash, run Vagrant to check listed Ubuntu
   
@@ -53,7 +53,7 @@ Vagrant and Virtualbox with Ubuntu and the setup of passwordless login via Putty
     $ **vagrant init ubuntu/bionic64**
     
     `Vagrantfile` already exists in this directory. Remove it before
-     running `vagrant init`.
+     running `vagrant init`.  
 
   - Try again, with --force option to override Vagrantfile
 
@@ -75,29 +75,29 @@ Vagrant and Virtualbox with Ubuntu and the setup of passwordless login via Putty
     
     Bringing machine 'default' up with 'virtualbox' provider...  
     ==> default: Importing base box 'ubuntu/bionic64'...
-    ==> default: Matching MAC address for NAT networking...
-    ==> default: Checking if box 'ubuntu/bionic64' version '20220610.0.0' is up to date...
-    ==> default: Setting the name of the VM: shared_default_1655256898670_5796
-    ==> default: Clearing any previously set network interfaces...
-    ==> default: Preparing network interfaces based on configuration...
-        default: Adapter 1: nat
-    ==> default: Forwarding ports...
-        default: 22 (guest) => 2222 (host) (adapter 1)
-    ==> default: Running 'pre-boot' VM customizations...
-    ==> default: Booting VM...
-    ==> default: Waiting for machine to boot. This may take a few minutes...
-        default: SSH address: 127.0.0.1:2222
-        default: SSH username: vagrant
-        default: SSH auth method: private key
-        default:
-        default: Vagrant insecure key detected. Vagrant will automatically replace
-        default: this with a newly generated keypair for better security.
-        default:
-        default: Inserting generated public key within guest...
-        default: Removing insecure key from the guest if it's present...
-        default: Key inserted! Disconnecting and reconnecting using new SSH key...
-    ==> default: Machine booted and ready!
-    ==> default: Checking for guest additions in VM...
+    ==> default: Matching MAC address for NAT networking... 
+    ==> default: Checking if box 'ubuntu/bionic64' version '20220610.0.0' is up to date...  
+    ==> default: Setting the name of the VM: shared_default_1655256898670_5796  
+    ==> default: Clearing any previously set network interfaces...  
+    ==> default: Preparing network interfaces based on configuration...  
+        default: Adapter 1: nat  
+    ==> default: Forwarding ports...  
+        default: 22 (guest) => 2222 (host) (adapter 1)  
+    ==> default: Running 'pre-boot' VM customizations...  
+    ==> default: Booting VM...  
+    ==> default: Waiting for machine to boot. This may take a few minutes...  
+        default: SSH address: 127.0.0.1:2222  
+        default: SSH username: vagrant  
+        default: SSH auth method: private key  
+        default:  
+        default: Vagrant insecure key detected. Vagrant will automatically replace  
+        default: this with a newly generated keypair for better security.  
+        default:  
+        default: Inserting generated public key within guest...  
+        default: Removing insecure key from the guest if it's present...  
+        default: Key inserted! Disconnecting and reconnecting using new SSH key...  
+    ==> default: Machine booted and ready!  
+    ==> default: Checking for guest additions in VM...  
         default: The guest additions on this VM do not match the installed version of
         default: VirtualBox! In most cases this is fine, but in rare cases it can
         default: prevent things such as shared folders from working properly. If you see
@@ -106,8 +106,8 @@ Vagrant and Virtualbox with Ubuntu and the setup of passwordless login via Putty
         default: your host and reload your VM.
         default:
         default: Guest Additions Version: 5.2.42
-        default: VirtualBox Version: 6.1
-    ==> default: Mounting shared folders...
+        default: VirtualBox Version: 6.1  
+    ==> default: Mounting shared folders...  
         default: /vagrant => C:/Users/caish/ubuntu-for-k8s-dev/shared
 
 ## edit Vagrantfile to configure customized setup
