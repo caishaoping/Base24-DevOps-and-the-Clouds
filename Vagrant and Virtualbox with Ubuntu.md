@@ -143,7 +143,17 @@ Vagrant and Virtualbox with Ubuntu and the setup of passwordless login via Putty
   
 ## Congratulations, now you have successfully used Vagrant to setup ubuntu virtual machine on Virtualbox
 
+## Try to login via Putty to private IP
 
+  - When you use Putty to login, it will fail because of missing authentication setup
+
+  ![Putth SSH failure](Vagrant.ssh.JPG)
+  
+  The next extra step is to setup Putty authentication to SSH with authenticated private key
+  
+ ## Extra credit:  please refer the separate article via link below:  
+ 
+ [Passwordless access to Ubuntu](https://github.com/caishaoping/Base24-DevOps-and-the-Clouds/blob/main/Ubuntu%20Virtual%20machine%20passwordless%20login%20via%20Putty.md)
 
 
 
