@@ -138,21 +138,8 @@ Vagrant and Virtualbox with Ubuntu and the setup of passwordless login via Putty
 
 ## Login to confirm the virtual machine is accessable 
 
-  $ **vagrant ssh**
-    Welcome to Ubuntu 18.04.6 LTS (GNU/Linux 4.15.0-184-generic x86_64)
-     * Documentation:  https://help.ubuntu.com
-     * Management:     https://landscape.canonical.com
-     * Support:        https://ubuntu.com/advantage
-      System information as of Wed Jun 15 01:57:47 UTC 2022
-      System load:  0.0               Processes:             100
-      Usage of /:   2.9% of 38.71GB   Users logged in:       0
-      Memory usage: 1%                IP address for enp0s3: 10.0.2.15
-      Swap usage:   0%                IP address for enp0s8: 192.168.5.30
-    0 updates can be applied immediately.
-    New release '20.04.4 LTS' available.
-    Run 'do-release-upgrade' to upgrade to it.
-  
-  ![ssh login](Vagrant.ssh.JPG)
+  $ **vagrant ssh**  
+    ![ssh login](Vagrant.ssh.JPG)
   
   ## Congratulations, now you have successfully used Vagrant to setup ubuntu virtual machine on Virtualbox
 
