@@ -68,6 +68,7 @@ Vagrant and Virtualbox with Ubuntu and the setup of passwordless login via Putty
 ## Startup the Virtual Machine Ubuntu
   - From Git Bash, run vagrant up command, 
     $ **vagrant up**
+    
     Bringing machine 'default' up with 'virtualbox' provider...
     ==> default: Importing base box 'ubuntu/bionic64'...
     ==> default: Matching MAC address for NAT networking...
@@ -119,11 +120,12 @@ Vagrant and Virtualbox with Ubuntu and the setup of passwordless login via Putty
       end
     end
     
- ## Apply updated configuration with vagrant provision command  
+ ## Apply updated configuration with vagrant provision command
+ 
     - Apply new updates
     
-    $ **vagrant provision**
-    caish@ThinkCentre MINGW64 ~/ubuntu-for-k8s-dev/shared
+  $ **vagrant provision**
+  caish@ThinkCentre MINGW64 ~/ubuntu-for-k8s-dev/shared
     
     - when running provision command, the virtual maching should be already started up, otherwise you will get following message:
       ==> default: VM is not currently running. Please, first bring it up with `vagrant up` then run this command.
