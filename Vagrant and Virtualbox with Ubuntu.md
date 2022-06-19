@@ -147,7 +147,7 @@ Vagrant and Virtualbox with Ubuntu and the setup of passwordless login via Putty
 
   - When you use Putty to login, it will fail because of missing authentication setup
 
-  ![Putth SSH failure](Vagrant.ssh.JPG)
+  ![Putth SSH failure](putty.failure.JPG)
   
   The next extra step is to setup Putty authentication to SSH with authenticated private key
   
