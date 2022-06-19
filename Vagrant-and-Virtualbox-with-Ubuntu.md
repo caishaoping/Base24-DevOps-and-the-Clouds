@@ -153,7 +153,7 @@ Vagrant and Virtualbox with Ubuntu and the setup of passwordless login via Putty
   
  ## Extra credit:  please refer the separate article via link below:  
  
- [Passwordless access to Ubuntu via Putty](https://github.com/caishaoping/Base24-DevOps-and-the-Clouds/blob/main/Ubuntu%20Virtual%20machine%20passwordless%20login%20via%20Putty.md)
+ [Passwordless access to Ubuntu via Putty](https://github.com/caishaoping/Base24-DevOps-and-the-Clouds/blob/main/Ubuntu-Virtual-machine-passwordless-login-via-Putty.md)
 
 
 
