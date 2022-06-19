@@ -1,6 +1,6 @@
 # Prerequsite
 - This the continuation with the assumption that you have completed the install of Ubuntu on VirgualBox via Vagrant;
-- If not, please following the steps in [this link](https://github.com/caishaoping/Base24-DevOps-and-the-Clouds/blob/main/Vagrant%20and%20Virtualbox%20with%20Ubuntu.md)
+- If not, please following the steps in [this link](https://github.com/caishaoping/Base24-DevOps-and-the-Clouds/blob/main/Vagrant-and-Virtualbox-with-Ubuntu.md)
 
 # Recap of where you are with your logins to newly installed Ubuntu VirtualBox
 ## When using Vagrant ssh command, it can successfully to establish an SSH session into Ubuntu virtual machine
