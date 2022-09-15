@@ -96,6 +96,37 @@ vagrant@worker:~$
        valid_lft forever preferred_lft forever
 vagrant@cp:~$
 
+## Container sections in Pod definition:
+    spec:
+      containers:
+      - image: 10.101.72.139:5000/simpleapp
+        imagePullPolicy: Always
+        name: simpleapp
+        readinessProbe:
+          exec:
+            command:
+            - cat
+            - /tmp/healthy
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      - image: k8s.gcr.io/goproxy:0.1
+        name: goproxy
+        ports:
+        - containerPort: 8080
+        readinessProbe:
+          tcpSocket:
+            port: 8080
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        livenessProbe:
+          tcpSocket:
+            port: 8080
+          initialDelaySeconds: 15
+          periodSeconds: 20
+
 
 ## A look at Pods
 vagrant@cp:~/app1$ k get po -o wide
