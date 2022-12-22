@@ -1,0 +1,50 @@
+controlplane $ curl -kv https://world.universe.mine:30443/europe
+*   Trying 172.30.1.2:30443...
+* TCP_NODELAY set
+* Connected to world.universe.mine (172.30.1.2) port 30443 (#0)
+* ALPN, offering h2
+* ALPN, offering http/1.1
+* successfully set certificate verify locations:
+*   CAfile: /etc/ssl/certs/ca-certificates.crt
+  CApath: /etc/ssl/certs
+* TLSv1.3 (OUT), TLS handshake, Client hello (1):
+* TLSv1.3 (IN), TLS handshake, Server hello (2):
+* TLSv1.3 (IN), TLS handshake, Encrypted Extensions (8):
+* TLSv1.3 (IN), TLS handshake, Certificate (11):
+* TLSv1.3 (IN), TLS handshake, CERT verify (15):
+* TLSv1.3 (IN), TLS handshake, Finished (20):
+* TLSv1.3 (OUT), TLS change cipher, Change cipher spec (1):
+* TLSv1.3 (OUT), TLS handshake, Finished (20):
+* SSL connection using TLSv1.3 / TLS_AES_256_GCM_SHA384
+* ALPN, server accepted to use h2
+* Server certificate:
+*  subject: CN=world.universe.mine; O=world.universe.mine
+*  start date: Dec 22 20:10:35 2022 GMT
+*  expire date: Dec 22 20:10:35 2023 GMT
+*  issuer: CN=world.universe.mine; O=world.universe.mine
+*  SSL certificate verify result: self signed certificate (18), continuing anyway.
+* Using HTTP2, server supports multi-use
+* Connection state changed (HTTP/2 confirmed)
+* Copying HTTP/2 data in stream buffer to connection buffer after upgrade: len=0
+* Using Stream ID: 1 (easy handle 0x5622c069c210)
+> GET /europe HTTP/2
+> Host: world.universe.mine:30443
+> user-agent: curl/7.68.0
+> accept: */*
+> 
+* TLSv1.3 (IN), TLS handshake, Newsession Ticket (4):
+* TLSv1.3 (IN), TLS handshake, Newsession Ticket (4):
+* old SSL session ID is stale, removing
+* Connection state changed (MAX_CONCURRENT_STREAMS == 128)!
+< HTTP/2 200 
+< date: Thu, 22 Dec 2022 20:18:53 GMT
+< content-type: text/html
+< content-length: 26
+< last-modified: Thu, 22 Dec 2022 20:00:29 GMT
+< etag: "63a4b75d-1a"
+< accept-ranges: bytes
+< strict-transport-security: max-age=15724800; includeSubDomains
+< 
+hello, you reached EUROPE
+* Connection #0 to host world.universe.mine left intact
+controlplane $ 
