@@ -1,0 +1,67 @@
+# dig more info from pod via powerful new docker-like tool of "crictl"
+
+  1. Find all running pods under certain naming: crictl pods -name kube
+
+controlplane $ crictl pods -name kube
+POD ID              CREATED             STATE               NAME                                      NAMESPACE           ATTEMPT             RUNTIME
+bab4bfed52149       16 minutes ago      Ready               kube-apiserver-controlplane               kube-system         1                   (default)
+1e6ebb1ab479c       48 minutes ago      Ready               calico-kube-controllers-9d57d8f49-k2tm9   kube-system         2                   (default)
+6c19426de6b17       49 minutes ago      Ready               kube-proxy-4snkm                          kube-system         1                   (default)
+1d90d53be6417       49 minutes ago      Ready               kube-scheduler-controlplane               kube-system         1                   (default)
+65c6eb4703fe1       49 minutes ago      Ready               kube-controller-manager-controlplane      kube-system         1                   (default)
+97d5353c69968       20 hours ago        NotReady            kube-proxy-4snkm                          kube-system         0                   (default)
+  
+
+    2. Find running containers'ID of a given pod id: crictl ps --pod PODID
+controlplane $ crictl ps --pod bab4bfed52149
+CONTAINER           IMAGE               CREATED             STATE               NAME                ATTEMPT             POD ID              POD
+089581b4205f9       7fe0e6f37db33       17 minutes ago      Running             kube-apiserver      0                   bab4bfed52149       kube-apiserver-controlplane
+
+    3. Find running container's log via container ID: crictl logs [command options] CONTAINER-ID
+ controlplane $ crictl logs -tail 10 089581b4205f9
+I1226 16:40:46.362937       1 handler.go:232] Adding GroupVersion crd.projectcalico.org v1 to ResourceManager
+I1226 16:40:46.368227       1 handler.go:232] Adding GroupVersion crd.projectcalico.org v1 to ResourceManager
+I1226 16:40:46.371220       1 handler.go:232] Adding GroupVersion crd.projectcalico.org v1 to ResourceManager
+I1226 16:40:46.375809       1 handler.go:232] Adding GroupVersion crd.projectcalico.org v1 to ResourceManager
+I1226 16:40:46.378184       1 handler.go:232] Adding GroupVersion crd.projectcalico.org v1 to ResourceManager
+I1226 16:40:46.380864       1 handler.go:232] Adding GroupVersion crd.projectcalico.org v1 to ResourceManager
+I1226 16:40:46.387320       1 handler.go:232] Adding GroupVersion crd.projectcalico.org v1 to ResourceManager
+I1226 16:40:46.394588       1 handler.go:232] Adding GroupVersion crd.projectcalico.org v1 to ResourceManager
+I1226 16:40:46.399692       1 handler.go:232] Adding GroupVersion crd.projectcalico.org v1 to ResourceManager
+I1226 16:40:46.404171       1 handler.go:232] Adding GroupVersion crd.projectcalico.org v1 to ResourceManager
+
+  4. Find pod id and pod name via a running container ID:  crictl ps --id CONTAINER-ID
+controlplane $ crictl ps --id 089581b4205f9     
+CONTAINER           IMAGE               CREATED             STATE               NAME                ATTEMPT             POD ID              POD
+089581b4205f9       7fe0e6f37db33       25 minutes ago      Running             kube-apiserver      0                   bab4bfed52149       kube-apiserver-controlplane
+    
+  5. Find PID of a running container via container ID:  crictl inspect CONTAINER-ID | grep -i "pid"    or crictl inspect CONTAINER-ID | jq '.info.pid'
+controlplane $ crictl inspect 089581b4205f9 | grep -i "pid"
+    "pid": 21322,
+            "pid": 1
+            "type": "pid"
+                "getpid",
+                "getppid",
+                "pidfd_open",
+                "pidfd_send_signal",
+                "waitpid",
+controlplane $ crictl inspect 089581b4205f9 | jq '.info.pid'
+21322  
+  
+  6. Find syscall from PID:  strace -p PID
+controlplane $ strace -p 21322
+strace: Process 21322 attached
+futex(0x783c468, FUTEX_WAIT_PRIVATE, 0, NULL
+      
+  7. Find more info like running binary file, File system, etc from PID: tackle /proc/PID/
+controlplane $ ls /proc/21322/
+arch_status  auxv        cmdline          cpuset   exe     gid_map  loginuid   mem        mountstats  numa_maps  oom_score_adj  personality  sched      setgroups     stack  status   timers         wchan
+attr         cgroup      comm             cwd      fd      io       map_files  mountinfo  net         oom_adj    pagemap        projid_map   schedstat  smaps         stat   syscall  timerslack_ns
+autogroup    clear_refs  coredump_filter  environ  fdinfo  limits   maps       mounts     ns          oom_score  patch_state    root         sessionid  smaps_rollup  statm  task     uid_map
+
+    controlplane $ ls -al /proc/21322/exe
+lrwxrwxrwx 1 root root 0 Dec 26 16:54 /proc/21322/exe -> /usr/local/bin/kube-apiserver
+  
+  
+  
+  
