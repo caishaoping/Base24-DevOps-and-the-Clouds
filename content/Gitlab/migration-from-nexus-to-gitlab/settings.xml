@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/settings/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+    <localRepository>~/.m2/repository</localRepository>
+<servers>
+  <server>
+      <id>nexus</id>
+      <username>${env.NEXUS_USER_NAME}</username>
+      <password>${env.NEXUS_PASSWORD}</password>
+  </server>
+  <server>
+      <id>gitlab-snapshots</id>
+      <username>${env.GITLAB_SNPSHOTS_USER_NAME}</username>
+      <password>${env.GITLAB_SNAPSHOTS_PASSWORD}</password>
+  </server>
+  <server>
+      <id>gitlab-releases</id>
+      <username>${env.GITLAB_RELEASES_USER_NAME}</username>
+      <password>${env.GITLAB_RELEASES_PASSWORD}</password>
+  </server>    
+</servers>
+  
+<mirrors>
+  <mirror>
+    <id>nexus</id>
+    <mirrorOf>external:*,!gitlab-snpshots,!gitlab-releases</mirrorOf>
+    <name>Maven local download centro</name>
+    <url>https://nexus.company.com/nexus/content/groups/public</url>
+  </mirror>
+  <mirror>
+    <id>gitlab-snapshots</id>    
+    <mirrorOf>gitlab-snpshots</mirrorOf>
+    <url>https://gitlab.company.com/nexus/apt/v4/projects/${SNAPSHOTS_PROJECT_ID}/packages/maven</url>
+  </mirror>
+  <mirror>
+    <id>gitlab-releases</id>    
+    <mirrorOf>gitlab-releases</mirrorOf>
+    <url>https://gitlab.company.com/nexus/apt/v4/projects/${RELEASE_PROJECT_ID}/packages/maven</url>
+  </mirror>   
+</mirrors>
+
+<profiles>
+  <profile>
+    <id>nexus</id>
+    <repositories>
+      <repository>
+        <id>central</id>
+        <url>https://www.maven-central.com/</url>
+      </repository>
+      <repository>
+        <id>releases</id>
+        <url>https://www.releases-repo.com/</url>
+      </repository>
+      <repository>
+        <id>snapshots</id>
+        <url>https://www.snapshots-repo.com/</url>
+      </repository>
+    </repositories>
+    <pluginRepositories>
+      <pluginRepository>
+        <id>central</id>
+        <url>http://central</url>
+        <releases><enabled>true</enabled></releases>
+        <snapshots><enabled>true</enabled></snapshots>        
+      </pluginRepository>
+    </pluginRepositories>
+  </profile>
+  <profile>
+    <id>gitlab-snapshots</id>
+    <repositories>
+      <repository>
+        <id>gitlab-snapshots</id>
+        <url>https://gitlab.company.com/nexus/apt/v4/projects/${SNAPSHOTS_PROJECT_ID}/packages/maven</url>
+        <snapshots><enabled>true</enabled></snapshots>
+        <releases><enabled>false</enabled></releases>        
+      </repository>
+    </repositories>
+    <pluginRepositories>
+      <pluginRepository>
+        <id>central</id>
+        <url>http://central</url>
+        <snapshots><enabled>true</enabled></snapshots>  
+        <releases><enabled>true</enabled></releases>     
+      </pluginRepository>
+    </pluginRepositories>
+  </profile>
+  <profile>
+    <id>gitlab-releases</id>
+    <repositories>
+      <repository>
+        <id>gitlab-releases</id>
+        <url>https://gitlab.company.com/nexus/apt/v4/projects/${RELEASES_PROJECT_ID}/packages/maven</url>
+        <snapshots><enabled>false</enabled></snapshots>
+        <releases><enabled>true</enabled></releases>        
+      </repository>
+    </repositories>
+    <pluginRepositories>
+      <pluginRepository>
+        <id>central</id>
+        <url>http://central</url>
+        <snapshots><enabled>true</enabled></snapshots>  
+        <releases><enabled>true</enabled></releases>     
+      </pluginRepository>
+    </pluginRepositories>
+  </profile>  
+</profiles>
+
+<activeProfiles>
+  <activeProfile>nexus</activeProfile>
+</activeProfiles>
+ 
+</settings>
+
